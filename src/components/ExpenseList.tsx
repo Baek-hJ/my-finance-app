@@ -1,6 +1,6 @@
-import React from 'react'
 
 const ExpenseList = () => {
+
   return (
     <div>ExpenseList</div>
   )
