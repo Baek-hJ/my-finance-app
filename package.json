@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "gen:types": "supabase gen types typescript --project-id adhhtpuolrmmhwinkjha --schema public > database.types.ts"
+    "gen:types": "supabase gen types typescript --project-id adhhtpuolrmmhwinkjha > database.types.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",
@@ -16,6 +16,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.0",
+    "supabase": "^2.19.7",
     "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
