@@ -21,6 +21,10 @@
     animation: gradientAnimation 5s linear infinite alternate;
 } */
 
+*{
+   font-family: sans-serif;
+}
+
 @layer utilities {
   @keyframes gradientMove {
     0%,
