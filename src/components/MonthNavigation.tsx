@@ -4,9 +4,9 @@ const MonthNavigation = () => {
 const buttons = Array.from({length: 12}, (_, i) => i + 1)
 
     return (
-    <div className="flex flex-row bg-white p-4 rounded-lg shadow-md items-center justify-center gap-4 md:gap-6 grid grid-cols-6">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-4 bg-white p-4 rounded-lg shadow-md">
         {buttons.map((month) => (
-        <button key={month} className="border-2 md:border-solid w-20 ">{month}월</button>
+        <button key={month} className="bg-slate-100 hover:bg-indigo-200 hover:border-2 border-indigo-300 hover:cursor-pointer w-full h-12 text-center rounded-lg">{month}월</button>
         ))}
     </div>
   )
