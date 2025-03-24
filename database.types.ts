@@ -13,8 +13,8 @@ export type Database = {
     Tables: {
       expenses: {
         Row: {
-          amount: number | null
-          date: string
+        amount: number | null
+        date: string
           description: string | null
           id: string
           item: string | null
