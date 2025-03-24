@@ -2,7 +2,7 @@
 
 const CreateExpense = () => {
   return (
-    <div>
+    <div className="bg-cyan-500">
       <div>
         <p>날짜</p>
         <input className="" type="date" />
