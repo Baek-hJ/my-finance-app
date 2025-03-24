@@ -1,8 +1,7 @@
 
-
 const CreateExpense = () => {
   return (
-    <div className="bg-cyan-500">
+    <form className="bg-cyan-500">
       <div>
         <p>날짜</p>
         <input className="" type="date" />
@@ -22,7 +21,9 @@ const CreateExpense = () => {
         <p>내용</p>
         <input className="" type="text" />
       </div>
-    </div>
+
+      <button>저장</button>
+    </form>
   );
 };
 
