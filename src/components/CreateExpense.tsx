@@ -1,7 +1,7 @@
 
 const CreateExpense = () => {
   return (
-    <form className="flex flex-row bg-white p-4 rounded-lg shadow-md">
+    <form className="flex flex-row bg-white p-4 rounded-xl shadow-md">
       <div className="basis-auto">
         <p>날짜</p>
         <input className="" type="text" placeholder="YYYY-MM-DD"/>

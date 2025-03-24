@@ -1,6 +1,6 @@
 const ExpenseList = () => {
   return (
-    <div className="flex flex-row bg-white p-4 rounded-lg shadow-md">
+    <div className="flex flex-row bg-white p-4 rounded-xl shadow-md">
       <ul>
         <li>
           <button>수정</button>
