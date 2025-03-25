@@ -41,7 +41,7 @@ const Home = () => {
     };
 
     fetchExpenses();
-  }, [selectedMonth]);
+  }, [selectedMonth]); //selectedMonth가 바뀌면 다시 실행됨
 
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-gradient-to-br from-[#0f0f0f] via-[#1a1a2e] to-[#3c1053] bg-[length:200%_200%] bg-[position:0%_50%] animate-gradient-move flex flex-col items-center justify-center space-y-4">
