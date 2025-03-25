@@ -16,6 +16,7 @@ const CreateExpense = ({ onExpenseAdded }: CreateExpenseProps) => {
       .from("expenses")
       .insert([
         {
+          id: crypto.randomUUID(),
           date,
           item,
           amount,
