@@ -8,13 +8,13 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export type Database = {
+export interface Database {
   public: {
     Tables: {
       expenses: {
         Row: {
-          amount: number | null
-          date: string
+        amount: number | null
+        date: string
           description: string | null
           id: string
           item: string | null
@@ -147,4 +147,5 @@ export type CompositeTypes<
   : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
     ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
-Done in 9.97s.
+
+    export type Expense = Tables<"expenses">;
