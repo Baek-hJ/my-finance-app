@@ -8,13 +8,15 @@ const CreateExpense = ({onExpenseAdded}: CreateExpenseProps) => {
   const handleSubmit = async () => {
     const {error} = await supabase
     .from('expenses')
-    .insert([
-      { date : new Date().toISOString().slice(0, 10),
+.insert([
+      { 
+        date : new Date().toISOString().slice(0, 10),
         item : "item",
         amount: 1000,
         description: "description",
       }
-    ]);
+    ])
+    .select()
 
     if (error) {
       console.error("Error adding expense:", error.message);
