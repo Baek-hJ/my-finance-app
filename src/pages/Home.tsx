@@ -14,20 +14,20 @@ const Home = () => {
       //현재 연도
       const year = new Date().getFullYear();
       // 선택한 달의 1일부터
-      const startDate = `${year}${String(selectedMonth).padStart(2,"0")}-01`;
+      const startDate = `${year}${String(selectedMonth).padStart(2, "0")}-01`;
 
       // 다음 달의 1일까지
       const endMonth = selectedMonth === 12 ? 1 : selectedMonth + 1;
       const endYear = selectedMonth === 12 ? year + 1 : year;
-      const endDate = `${endYear}${String(endMonth).padStart(2,"0")}-01`;
+      const endDate = `${endYear}${String(endMonth).padStart(2, "0")}-01`;
 
       // supabase에서 데이터 가져오기
       const { data, error } = await supabase
-      .from("expenses")
-      .select("*")
-      .gte("data", startDate)
-      .lte("column", endDate)
-      .order("date", {ascending: false}); // 날짜 내림차순순
+        .from("expenses")
+        .select("*")
+        .gte("data", startDate)
+        .lte("column", endDate)
+        .order("date", { ascending: false }); // 날짜 내림차순순
 
       if (error) {
         console.error("Error fetching expenses:", error.message);
@@ -48,10 +48,14 @@ const Home = () => {
       <h1 className="font-sans md:font-sans text-[4rem] text-start font-semibold text-white/60 ">
         Todo List
       </h1>
+
       <div className="grid gap-4 m-10 justify-center md:object-top">
-        <MonthNavigation />
+        <MonthNavigation
+          selectedMonth={selectedMonth}
+          setSelectedMonth={setSelectedMonth}
+        />
         <CreateExpense />
-        <ExpenseList />
+        <ExpenseList expenses={expenses} />
       </div>
     </div>
   );
