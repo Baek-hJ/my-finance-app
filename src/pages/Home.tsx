@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import CreateExpense from "../components/CreateExpense";
 import ExpenseList from "../components/ExpenseList";
 import MonthNavigation from "../components/MonthNavigation";
