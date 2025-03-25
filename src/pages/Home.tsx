@@ -11,6 +11,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchExpenses = async () => {
+      //현재 연도
+      const year = new Date().getFullYear();
+      // 선택한 달의 1일부터
+      const startDate = `${year}${String(selectedMonth).padStart(2,"0")}-01`;
+
+      // 다음 달의 1일까지
+      const endMonth = selectedMonth === 12 ? 1 : selectedMonth + 1;
+      const endYear = selectedMonth === 12 ? year + 1 : year;
       const { data, error } = await supabase.from("expenses").select("*");
 
       if (error) {
@@ -25,12 +33,6 @@ const Home = () => {
 
     fetchExpenses();
   }, []);
-
-  useEffect (() => {
-    const { data, error } = await supabase
-  .from('expenses')
-  .select("*")
-  })
 
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-gradient-to-br from-[#0f0f0f] via-[#1a1a2e] to-[#3c1053] bg-[length:200%_200%] bg-[position:0%_50%] animate-gradient-move flex flex-col items-center justify-center space-y-4">
