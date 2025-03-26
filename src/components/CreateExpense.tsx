@@ -11,14 +11,13 @@ const CreateExpense = ({ onExpenseAdded }: CreateExpenseProps) => {
   const [amount, setAmount] = useState<number>(0);
   const [date, setDate] = useState<string>("");
 
-  const handleSubmit = async (e:React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     // 새로고침 방지
     e.preventDefault();
 
     const isValidDate = /^\d{4}-\d{2}-\d{2}$/.test(date);
 
     if (!isValidDate) {
-      
     }
 
     const { error } = await supabase

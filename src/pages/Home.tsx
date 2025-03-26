@@ -36,7 +36,7 @@ const Home = () => {
 
     // 데이터가 있으면 화면에 렌더링을 해주기 위해 저장
     if (data) {
-    setExpenses(data);
+      setExpenses(data);
     }
   };
 
@@ -55,7 +55,7 @@ const Home = () => {
           selectedMonth={selectedMonth}
           setSelectedMonth={setSelectedMonth}
         />
-        <CreateExpense onExpenseAdded={fetchExpenses}/>
+        <CreateExpense onExpenseAdded={fetchExpenses} />
         <ExpenseList expenses={expenses} />
       </div>
     </div>
