@@ -17,13 +17,12 @@ const MonthNavigation = ({
           <button
             key={month}
             onClick={() => setSelectedMonth(month)}
-            className={`bg-slate-100 hover:bg-indigo-200 hover:border-2 border-indigo-300 hover:cursor-pointer w-full h-12 text-center rounded-lg
+            className={` hover:bg-indigo-200 hover:border-2 border-indigo-300 hover:cursor-pointer w-full h-12 text-center rounded-lg
               ${
                 isSelected
-                  ? "bg-indigo-500 text-white border-2 border-indigo-700"
+                  ? "bg-indigo-200 border-2 border-indigo-00"
                   : "bg-slate-100 hover:bg-indigo-200 hover:border-2 border-indigo-300"
               }
-              hover:cursor-pointer transition
               `}
           >
             {month}월
