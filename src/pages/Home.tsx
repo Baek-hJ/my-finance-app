@@ -9,37 +9,38 @@ const Home = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [selectedMonth, setSelectedMonth] = useState<number>(3);
 
+  const fetchExpenses = async () => {
+    //현재 연도
+    const year = new Date().getFullYear();
+
+    // 선택한 달의 1일부터
+    const startDate = `${year}-${String(selectedMonth).padStart(2, "0")}-01`;
+
+    // 다음 달의 1일까지
+    const endMonth = selectedMonth === 12 ? 1 : selectedMonth + 1;
+    const endYear = selectedMonth === 12 ? year + 1 : year;
+    const endDate = `${endYear}-${String(endMonth).padStart(2, "0")}-01`;
+
+    // supabase에서 데이터 가져오기
+    const { data, error } = await supabase
+      .from("expenses")
+      .select("*")
+      .gte("date", startDate)
+      .lte("date", endDate)
+      .order("date", { ascending: false }); // 날짜 내림차순순
+
+    if (error) {
+      console.error("Error fetching expenses:", error.message);
+      return;
+    }
+
+    // 데이터가 있으면 화면에 렌더링을 해주기 위해 저장
+    if (data) {
+    setExpenses(data);
+    }
+  };
+
   useEffect(() => {
-    const fetchExpenses = async () => {
-      //현재 연도
-      const year = new Date().getFullYear();
-      // 선택한 달의 1일부터
-      const startDate = `${year}-${String(selectedMonth).padStart(2, "0")}-01`;
-
-      // 다음 달의 1일까지
-      const endMonth = selectedMonth === 12 ? 1 : selectedMonth + 1;
-      const endYear = selectedMonth === 12 ? year + 1 : year;
-      const endDate = `${endYear}-${String(endMonth).padStart(2, "0")}-01`;
-
-      // supabase에서 데이터 가져오기
-      const { data, error } = await supabase
-        .from("expenses")
-        .select("*")
-        .gte("date", startDate)
-        .lte("date", endDate)
-        .order("date", { ascending: false }); // 날짜 내림차순순
-
-      if (error) {
-        console.error("Error fetching expenses:", error.message);
-        return;
-      }
-
-      // 데이터가 있으면 화면에 렌더링을 해주기 위해 저장
-      if (data) {
-      setExpenses(data);
-      }
-    };
-
     fetchExpenses();
   }, [selectedMonth]); //selectedMonth가 바뀌면 다시 실행됨
 
@@ -54,7 +55,7 @@ const Home = () => {
           selectedMonth={selectedMonth}
           setSelectedMonth={setSelectedMonth}
         />
-        <CreateExpense onExpenseAdded={onExpenseAdded}/>
+        <CreateExpense onExpenseAdded={fetchExpenses}/>
         <ExpenseList expenses={expenses} />
       </div>
     </div>
