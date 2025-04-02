@@ -9,7 +9,7 @@ const Start = () => {
         src="/folder.png"
         alt="Folder"
         className="h-[13rem] cursor-pointer m-[1rem]"
-        onClick={() => navigate("/Home")}
+        onClick={() => navigate("/home")}
       />
       <h1 className="text-5xl font-sans font-bold">my-finance-app</h1>
     </div>
