@@ -1,6 +1,12 @@
-const MonthNavigation = () => {
+const MonthNavigation:React.FC = () => {
   return (
-    <div>MonthNavigation</div>
+    <div>
+      {Array.from({ length : 12}, (_,i) => ( 
+      <button key={i}>
+        {i+1}월
+      </button>
+    ))}
+    </div>
   )
 }
 
