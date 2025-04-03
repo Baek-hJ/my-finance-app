@@ -1,5 +1,5 @@
-yarn run v1.22.22
-$ C:\Users\LG\OneDrive\문서\NBC\my-finance-app-2\node_modules\.bin\supabase gen types typescript --project-id adhhtpuolrmmhwinkjha public
+// yarn run v1.22.22
+
 export type Json =
   | string
   | number
@@ -147,4 +147,3 @@ export type CompositeTypes<
   : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
     ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
-Done in 6.87s.
