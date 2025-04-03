@@ -1,6 +1,6 @@
 const MonthNavigation:React.FC = () => {
   return (
-    <div>
+    <div className="grid grid-flow-row auto-rows-max">
       <p>Month</p>
       {Array.from({ length : 12}, (_,i) => ( 
       <button key={i}>
