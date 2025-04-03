@@ -1,6 +1,6 @@
 const MonthNavigation:React.FC = () => {
   return (
-    <div className="grid grid-flow-row auto-rows-max">
+    <div className="flex flex-wrap justify-start gap-4 p-2">
       <p>Month</p>
       {Array.from({ length : 12}, (_,i) => ( 
       <button key={i}>
