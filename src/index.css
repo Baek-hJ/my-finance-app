@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
-/* 기본 커서 설정 */
 * {
-    /* Start https://www.cursors-4u.com */ * {cursor: url(https://ani.cursors-4u.net/nature/nat-11/nat1046.cur), auto !important;} /* End https://www.cursors-4u.com */
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym757.ani),
+    url(https://ani.cursors-4u.net/symbols/sym-8/sym757.png), auto !important;
 }
 
-/* 포인터 커서일 때 적용 */
-a, button, .cursor-pointer {
-    cursor: url(https://ani.cursors-4u.net/nature/nat-11/nat1046.cur), pointer !important;
+*:active {
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym760.ani),
+    url(https://ani.cursors-4u.net/symbols/sym-8/sym760.png), auto !important;
+}
+
+a,
+button,
+.cursor-pointer {
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym755.ani),
+    url(https://ani.cursors-4u.net/symbols/sym-8/sym755.png), auto !important;
 }
