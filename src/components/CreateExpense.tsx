@@ -16,7 +16,10 @@ const CreateExpense = () => {
   };
 
   return (
-    <div className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5"
+    >
       <h1 className="text-right ">날짜</h1>
       <input
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
@@ -29,10 +32,7 @@ const CreateExpense = () => {
         placeholder="0"
         type="number"
       />
-      <button
-        className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
-        type="onSubmit"
-      >
+      <button type="submit" className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]">
         저장
       </button>
 
@@ -49,7 +49,7 @@ const CreateExpense = () => {
         type="text"
       />
       <button className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]">취소</button>
-    </div>
+    </form>
   );
 };
 
