@@ -1,3 +1,18 @@
 @import "tailwindcss";
 
+* {
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym757.ani),
+    url(https://ani.cursors-4u.net/symbols/sym-8/sym757.png), auto !important;
+}
 
+*:active {
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym760.ani),
+    url(https://ani.cursors-4u.net/symbols/sym-8/sym760.png), auto !important;
+}
+
+a,
+button,
+.cursor-pointer {
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym755.ani),
+    url(https://ani.cursors-4u.net/symbols/sym-8/sym755.png), auto !important;
+}
