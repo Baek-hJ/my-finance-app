@@ -1,4 +1,20 @@
+import { Database } from "../../database.types";
+
 const CreateExpense = () => {
+  const mutation = useMutation({
+    mutationFn: addData,
+    onSuccess: () => {
+      alert("저장되었습니다.");
+    },
+    onError: () => {
+      alert("저장에 실패했습니다.");
+    },
+  });
+
+  const onSubmit: SubmitHandler<Database> = (data) => {
+    mutation.mutate(data);
+  };
+
   return (
     <div className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5">
       <h1 className="text-right ">날짜</h1>
@@ -13,7 +29,12 @@ const CreateExpense = () => {
         placeholder="0"
         type="number"
       />
-      <button className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]">저장</button>
+      <button
+        className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
+        type="onSubmit"
+      >
+        저장
+      </button>
 
       <h1 className="text-right">항목</h1>
       <input
