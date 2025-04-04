@@ -1,6 +1,9 @@
-import { Database } from "../../database.types";
+import { use } from "react";
+import { TablesInsert } from "../../database.types";
 
-const CreateExpense = () => {
+const CreateExpense = ({ children }: { children: React.ReactNode }) => {
+  const { handleSubmit } = useForm<TablesInsert>();
+
   const mutation = useMutation({
     mutationFn: addData,
     onSuccess: () => {
@@ -11,7 +14,7 @@ const CreateExpense = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<Database> = (data) => {
+  const onSubmit: SubmitHandler<TablesInsert> = (data) => {
     mutation.mutate(data);
   };
 
