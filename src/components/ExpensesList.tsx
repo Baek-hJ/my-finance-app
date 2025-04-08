@@ -19,7 +19,16 @@ const ExpensesList = () => {
   return (
     <div>
       <h2>ExpensesList</h2>
-      (expenses.)
+      (expenses.map((expenses) => {
+ return (
+        <div key={expenses.id}>
+          <h3>{expenses.item}</h3>
+          <p>Amount: {expenses.amount}</p>
+          <p>Date: {expenses.date}</p>
+          <p>Description: {expenses.description}</p>
+        </div>
+)
+      }))
     </div>
   );
 };
