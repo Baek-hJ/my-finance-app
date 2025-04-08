@@ -20,15 +20,17 @@ const ExpensesList = () => {
   }, []);
   return (
     <div>
-      <h2>ExpensesList</h2>
-      {expenses.map((expense) => (
-        <div key={expense.id}>
-          <h3>{expense.item}</h3>
-          <p>Amount: {expense.amount}</p>
-          <p>Date: {expense.date}</p>
-          <p>Description: {expense.description}</p>
-        </div>
-      ))}
+      <ul className="list-disc list-inside flex flex-col gap-3 p-5">
+        {expenses.map((expense) => (
+          <li className="flex-1" key={expense.id}>
+            <p>{expense.date}</p>
+            <p className="flex-1">
+              {expense.item} - {expense.description}
+            </p>
+            <p className="flex-1">{expense.amount}원</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
