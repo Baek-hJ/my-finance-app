@@ -12,6 +12,8 @@ const InputData: InputValue = {
 const { data, error } = await supabase
   .from('expenses')
   .insert([
-    { Input },
+    { amount, date, description, id, item },
   ])
   .select()
+}
+  }
