@@ -20,14 +20,16 @@ const ExpensesList = () => {
   }, []);
   return (
     <div>
-      <ul className="list-disc list-inside flex flex-col gap-3 p-5">
+      <ul className="list-disc list-outside pl-6">
         {expenses.map((expense) => (
-          <li className="flex-1" key={expense.id}>
-            <p>{expense.date}</p>
-            <p className="flex-1">
-              {expense.item} - {expense.description}
-            </p>
-            <p className="flex-1">{expense.amount}원</p>
+          <li key={expense.id}>
+            <div className="grid grid-cols-[7rem_6rem_5rem] gap-x-4">
+              <p>{expense.date}</p>
+              <p>
+                {expense.item} - {expense.description}
+              </p>
+              <p>{expense.amount}원</p>
+            </div>
           </li>
         ))}
       </ul>
