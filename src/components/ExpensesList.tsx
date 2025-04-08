@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
+import { Expense } from "../../database.types";
 
 const ExpensesList = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
