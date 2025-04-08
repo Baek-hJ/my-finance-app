@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "../utils/supabase";
 
 const ExpensesList = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
@@ -19,16 +20,14 @@ const ExpensesList = () => {
   return (
     <div>
       <h2>ExpensesList</h2>
-      (expenses.map((expenses) => {
- return (
-        <div key={expenses.id}>
-          <h3>{expenses.item}</h3>
-          <p>Amount: {expenses.amount}</p>
-          <p>Date: {expenses.date}</p>
-          <p>Description: {expenses.description}</p>
+      {expenses.map((expense) => (
+        <div key={expense.id}>
+          <h3>{expense.item}</h3>
+          <p>Amount: {expense.amount}</p>
+          <p>Date: {expense.date}</p>
+          <p>Description: {expense.description}</p>
         </div>
-)
-      }))
+      ))}
     </div>
   );
 };
