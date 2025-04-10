@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "../utils/supabase";
 
 const CreateExpenses = () => {
   const [addDate, setAddDate] = useState("");
@@ -6,6 +7,19 @@ const CreateExpenses = () => {
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
 
+  const handleChange = async () => {
+    const {error} = await supabase.from("expenses").insert([
+      {
+        date: addDate,
+        amount: addAmount,
+        item: addItem,
+        description: addDescription,
+      },
+    ]);
+    if (error) {
+      console.error("Error inserting data:", error);
+    }
+  }
   return (
     <form className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5">
       <h1 className="text-right ">날짜</h1>
