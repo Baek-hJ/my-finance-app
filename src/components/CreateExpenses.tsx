@@ -1,4 +1,11 @@
+import { useState } from "react";
+
 const CreateExpenses = () => {
+  const [addDate, setAddDate] = useState("");
+  const [addAmount, setAddAmount] = useState<number | null>(0);
+  const [addItem, setAddItem] = useState<string | null>("");
+  const [addDescription, setAddDescription] = useState<string | null>("");
+
   return (
     <form className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5">
       <h1 className="text-right ">날짜</h1>
