@@ -28,7 +28,7 @@ const ExpensesList = () => {
               <p className="text-mbold font-bold">
                 {expense.item} - {expense.description}
               </p>
-              <p>{expense.amount}원</p>
+              <p className="text-mbold font-bold text-[#179494]">{expense.amount}원</p>
             </div>
           </li>
         ))}
