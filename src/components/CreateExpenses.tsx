@@ -8,14 +8,10 @@ const CreateExpenses = () => {
   const [addDescription, setAddDescription] = useState<string | null>("");
 
   const handleCansle = async () => {
-    if (!addDate || !addAmount || !addItem || !addDescription) {
-      return;
-    } else {
       setAddDate("");
       setAddAmount("");
       setAddItem("");
       setAddDescription("");
-    }
   };
 
   const handleChange = async () => {
@@ -83,6 +79,7 @@ const CreateExpenses = () => {
         type="text"
       />
       <button
+        type="button"
         onClick={handleCansle}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
