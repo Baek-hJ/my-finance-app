@@ -1,5 +1,5 @@
-import CreateExpenses from "../components/CreateExpenses";
-import ExpensesList from "../components/ExpensesList";
+import CreateExpense from "../components/CreateExpense";
+import ExpenseList from "../components/ExpenseList";
 import MonthNavigation from "../components/MonthNavigation";
 
 const Home = () => {
@@ -49,10 +49,10 @@ const Home = () => {
         </div>
 
         <div className="p-[1rem] border md:h-[70%] md:w-full bg-white overflow-y-scroll border ">
-          <ExpensesList />
+          <ExpenseList />
         </div>
 
-        <CreateExpenses />
+        <CreateExpense />
       </div>
     </div>
   );
