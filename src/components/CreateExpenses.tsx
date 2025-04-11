@@ -7,6 +7,17 @@ const CreateExpenses = () => {
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
 
+  const handleCansle = async () => {
+    if (!addDate || !addAmount || !addItem || !addDescription) {
+      return;
+    } else {
+      setAddDate("");
+      setAddAmount("");
+      setAddItem("");
+      setAddDescription("");
+    }
+  };
+
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
     const { error } = await supabase.from("expenses").insert([
@@ -20,7 +31,7 @@ const CreateExpenses = () => {
     ]);
     if (error) {
       console.error("Error inserting data:", error);
-    }else {
+    } else {
       setAddDate("");
       setAddAmount("");
       setAddItem("");
@@ -71,7 +82,12 @@ const CreateExpenses = () => {
         placeholder="지출 내용"
         type="text"
       />
-      <button className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]">취소</button>
+      <button
+        onClick={handleCansle}
+        className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
+      >
+        취소
+      </button>
     </form>
   );
 };
