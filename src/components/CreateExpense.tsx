@@ -1,6 +1,28 @@
-const CreateExpenses = () => {
+import { use } from "react";
+import { TablesInsert } from "../../database.types";
+
+const CreateExpense = ({ children }: { children: React.ReactNode }) => {
+  const { handleSubmit } = useForm<TablesInsert>();
+
+  const mutation = useMutation({
+    mutationFn: addData,
+    onSuccess: () => {
+      alert("저장되었습니다.");
+    },
+    onError: () => {
+      alert("저장에 실패했습니다.");
+    },
+  });
+
+  const onSubmit: SubmitHandler<TablesInsert> = (data) => {
+    mutation.mutate(data);
+  };
+
   return (
-    <form className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5"
+    >
       <h1 className="text-right ">날짜</h1>
       <input
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
@@ -34,4 +56,4 @@ const CreateExpenses = () => {
   );
 };
 
-export default CreateExpenses;
+export default CreateExpense;
