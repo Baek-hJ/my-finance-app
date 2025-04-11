@@ -25,7 +25,7 @@ const ExpensesList = () => {
           <li key={expense.id}>
             <div className="grid grid-cols-[7rem_6rem_5rem] gap-x-4">
               <p>{expense.date}</p>
-              <p>
+              <p className="text-mbold font-bold">
                 {expense.item} - {expense.description}
               </p>
               <p>{expense.amount}원</p>
