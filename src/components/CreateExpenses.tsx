@@ -3,16 +3,17 @@ import { supabase } from "../utils/supabase";
 
 const CreateExpenses = () => {
   const [addDate, setAddDate] = useState("");
-  const [addAmount, setAddAmount] = useState<number | null>(0);
+  const [addAmount, setAddAmount] = useState("");
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
 
   const handleChange = async () => {
+    const numberAmount = Number(addAmount) || 0;
     const { error } = await supabase.from("expenses").insert([
       {
         id: crypto.randomUUID(),
         date: addDate,
-        amount: addAmount,
+        amount: numberAmount,
         item: addItem,
         description: addDescription,
       },
@@ -40,7 +41,7 @@ const CreateExpenses = () => {
       <h1 className="text-right">가격</h1>
       <input
         value={addAmount ?? ""}
-        onChange={(e) => setAddAmount(Number(e.target.value))}
+        onChange={(e) => setAddAmount(e.target.value)}
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
         placeholder="0"
         type="number"
