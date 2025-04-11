@@ -20,6 +20,11 @@ const CreateExpenses = () => {
     ]);
     if (error) {
       console.error("Error inserting data:", error);
+    }else {
+      setAddDate("");
+      setAddAmount("");
+      setAddItem("");
+      setAddDescription("");
     }
   };
   return (
