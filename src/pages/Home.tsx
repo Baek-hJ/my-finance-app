@@ -73,7 +73,7 @@ const Home = () => {
           <ExpensesList expenses={expenses} selectedMonth={selectedMonth}/>
         </div>
 
-        <CreateExpense />
+        <CreateExpenses />
       </div>
     </div>
   );
