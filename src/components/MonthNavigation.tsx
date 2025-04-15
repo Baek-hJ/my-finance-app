@@ -3,7 +3,7 @@ const MonthNavigation:React.FC = () => {
     <div className="flex flex-wrap justify-start gap-4 p-2">
       <p>Month</p>
       {Array.from({ length : 12}, (_,i) => ( 
-      <button key={i}>
+      <button key={i} onClick={}>
         {i+1}
       </button>
     ))}
