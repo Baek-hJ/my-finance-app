@@ -1,8 +1,29 @@
-import CreateExpense from "../components/CreateExpense";
-import ExpenseList from "../components/ExpenseList";
+import { useEffect, useState } from "react";
+import CreateExpenses from "../components/CreateExpenses";
+import ExpensesList from "../components/ExpensesList";
 import MonthNavigation from "../components/MonthNavigation";
+import { Expense } from "../../database.types";
+import { supabase } from "../utils/supabase";
 
 const Home = () => {
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [selectedMonth, setSelectedMonth] = useState(1)
+
+
+  useEffect(() => {
+    const fetchExpenses = async () => {
+      const { data, error } = await supabase.from("expenses").select("*");
+
+      if (error) {
+        console.error("Error fetching expenses:", error);
+      } else {
+        setExpenses(data);
+      }
+    };
+
+    fetchExpenses();
+  }, []);
+
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <div className=" p-[1rem] border-2 bg-[#CFDCDC] size-40 w-[80%] md:w-[70%] md:h-[85%]">
@@ -45,14 +66,14 @@ const Home = () => {
         </div>
 
         <div className="bg-[#F1F1F1] border md:h-[2.3rem] md:w-full">
-          <MonthNavigation />
+          <MonthNavigation selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth}/>
         </div>
 
         <div className="p-[1rem] border md:h-[70%] md:w-full bg-white overflow-y-scroll border ">
-          <ExpenseList />
+          <ExpensesList expenses={expenses} selectedMonth={selectedMonth}/>
         </div>
 
-        <CreateExpense />
+        <CreateExpenses />
       </div>
     </div>
   );
