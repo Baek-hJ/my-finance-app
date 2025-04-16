@@ -5,7 +5,8 @@ type Props = {
 
 export const MonthNavigation: React.FC<Props> = ({ selectedMonth, setSelectedMonth }) => {
   return (
-    <div>
+    <div className="flex flex-wrap justify-start gap-4 p-2">
+      <p>Month</p>
       {Array.from({ length: 12 }, (_, i) => {
         const month = i + 1;
         return (
