@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import CreateExpenses from "../components/CreateExpenses";
 import ExpensesList from "../components/ExpensesList";
-import MonthNavigation from "../components/MonthNavigation";
 import { Expense } from "../../database.types";
 import { supabase } from "../utils/supabase";
+import { MonthNavigation } from "../components/MonthNavigation";
 
 const Home = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
