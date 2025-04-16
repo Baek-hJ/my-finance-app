@@ -1,17 +1,18 @@
-import { useState } from "react";
+type Props = {
+  selectedMonth: number;
+  setSelectedMonth: (month: number) => void;
+};
 
-const MonthNavigation: React.FC = () => {
-  const [localSelectedMonth, setLocalSelectedMonth] = useState<number>(1);
+export const MonthNavigation: React.FC<Props> = ({ selectedMonth, setSelectedMonth }) => {
   return (
-    <div className="flex flex-wrap justify-start gap-4 p-2">
-      <p>Month</p>
+    <div>
       {Array.from({ length: 12 }, (_, i) => {
         const month = i + 1;
         return (
           <button
             key={i}
-            onClick={() => setLocalSelectedMonth(month)}
-            className={localSelectedMonth === month ? "font-bold" : ""}
+            onClick={() => setSelectedMonth(month)}
+            className={selectedMonth === month ? "font-bold" : ""}
           >
             {month}
           </button>
@@ -20,5 +21,3 @@ const MonthNavigation: React.FC = () => {
     </div>
   );
 };
-
-export default MonthNavigation;
