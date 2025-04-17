@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import CreateExpenses from "../components/CreateExpenses";
 import ExpensesList from "../components/ExpensesList";
-import MonthNavigation from "../components/MonthNavigation";
 import { Expense } from "../../database.types";
 import { supabase } from "../utils/supabase";
+import { MonthNavigation } from "../components/MonthNavigation";
 
 const Home = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [selectedMonth, setSelectedMonth] = useState(1)
-
+  const [selectedMonth, setSelectedMonth] = useState(1);
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -66,11 +65,14 @@ const Home = () => {
         </div>
 
         <div className="bg-[#F1F1F1] border md:h-[2.3rem] md:w-full">
-          <MonthNavigation selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth}/>
+          <MonthNavigation
+            selectedMonth={selectedMonth}
+            setSelectedMonth={setSelectedMonth}
+          />
         </div>
 
         <div className="p-[1rem] border md:h-[70%] md:w-full bg-white overflow-y-scroll border ">
-          <ExpensesList expenses={expenses} selectedMonth={selectedMonth}/>
+          <ExpensesList expenses={expenses} selectedMonth={selectedMonth} />
         </div>
 
         <CreateExpenses />
