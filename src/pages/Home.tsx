@@ -75,7 +75,7 @@ const Home = () => {
           <ExpensesList expenses={expenses} selectedMonth={selectedMonth} />
         </div>
 
-        <CreateExpenses />
+        <CreateExpenses onAddExpense={(newExpense) => setExpenses(prev => [newExpense, ...prev])}/>
       </div>
     </div>
   );
