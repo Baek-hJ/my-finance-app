@@ -15,8 +15,8 @@ const ExpensesList = ({
         {filteredExpenses.map((expense) => (
           <li key={expense.id}>
             <div className="flex items-center gap-3 text-xl">
-              <p className="shrink-0">{expense.date}</p>
-              <p className="shrink-0 text-mbold font-bold">{expense.item} - {expense.description}</p>
+              <p className="mr-5 shrink-0">{expense.date}</p>
+              <p className="mr-5 shrink-0 text-mbold font-bold">{expense.item} - {expense.description}</p>
               <p className="shrink-0 text-mbold font-bold text-[#179494]">{expense.amount}원</p>
             </div>
           </li>
