@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Expense } from "../../database.types";
+import { useExpenses } from "../context/ExpensesContext";
 
-const Detail = ({expenses}:{expenses: Expense[]}) => {
-
+const Detail = () => {
   const { id } = useParams<{ id: string }>();
+  const { expenses } = useExpenses();
+
   const expense = expenses.find((e) => e.id === id);
+
   if (!expense) {
     return <div>지출 정보를 찾을 수 없습니다.</div>;
   }
