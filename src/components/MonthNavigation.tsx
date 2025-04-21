@@ -13,7 +13,7 @@ export const MonthNavigation: React.FC<Props> = ({ selectedMonth, setSelectedMon
           <button
             key={i}
             onClick={() => setSelectedMonth(month)}
-            className={selectedMonth === month ? "font-bold" : ""}
+            className={selectedMonth === month ? "font-bold underline decoration-2 decoration-black" : ""}
           >
             {month}
           </button>
