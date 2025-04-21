@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { Expense } from "../../database.types";
 import { useExpenses } from "../context/ExpensesContext";
 
 const Detail = () => {
