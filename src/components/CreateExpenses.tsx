@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabase";
+import { Expense } from "../../database.types";
 
-const CreateExpenses = () => {
+const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void}) => {
   const [addDate, setAddDate] = useState("");
   const [addAmount, setAddAmount] = useState("");
   const [addItem, setAddItem] = useState<string | null>("");
@@ -16,22 +17,24 @@ const CreateExpenses = () => {
 
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
-    const { error } = await supabase.from("expenses").insert([
-      {
-        id: crypto.randomUUID(),
-        date: addDate,
-        amount: numberAmount,
-        item: addItem,
-        description: addDescription,
-      },
-    ]);
-    if (error) {
-      console.error("Error inserting data:", error);
+    const newExpense: Expense = {
+      id: crypto.randomUUID(),
+      date: addDate,
+      amount: numberAmount,
+      item: addItem,
+      description: addDescription,
+    }
+    const { error } = await supabase.from("expenses").insert([newExpense]);
+
+    if (error)
+        {console.error("Error inserting data:", error);
     } else {
       setAddDate("");
       setAddAmount("");
       setAddItem("");
       setAddDescription("");
+
+      onAddExpense(newExpense);
     }
   };
   return (
