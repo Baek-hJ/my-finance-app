@@ -13,7 +13,7 @@ const ExpensesList = ({
   const filteredExpenses = getMonthFilter(expenses, selectedMonth);
   return (
     <div>
-            <ul className="list-disc list-outside ml-10">
+      <ul className="list-disc list-outside ml-10">
         {filteredExpenses.map((expense) => (
           <li key={expense.id}>
             <div className="m-5 flex items-center gap-3 text-xl">
