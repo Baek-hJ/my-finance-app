@@ -3,16 +3,23 @@ import "./App.css";
 import Start from "./pages/Start";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
+import { useState } from "react";
+import { ExpensesContext } from "./context/ExpensesContext";
+import { Expense } from "../database.types";
 
 function App() {
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Start />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/expenses/:id" element={<Detail />} />
-      </Routes>
-    </BrowserRouter>
+    <ExpensesContext.Provider value={{expenses, setExpenses}}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/expenses/:id" element={<Detail />} />
+        </Routes>
+      </BrowserRouter>
+    </ExpensesContext.Provider>
   );
 }
 

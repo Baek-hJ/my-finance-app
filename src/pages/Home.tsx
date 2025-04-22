@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import CreateExpenses from "../components/CreateExpenses";
 import ExpensesList from "../components/ExpensesList";
-import { Expense } from "../../database.types";
 import { supabase } from "../utils/supabase";
 import { MonthNavigation } from "../components/MonthNavigation";
+import { useExpenses } from "../context/ExpensesContext";
 
 const Home = () => {
-  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const {expenses, setExpenses} = useExpenses();
   const [selectedMonth, setSelectedMonth] = useState(1);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Home = () => {
     };
 
     fetchExpenses();
-  }, []);
+  }, [setExpenses]);
 
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
