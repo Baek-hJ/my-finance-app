@@ -4,10 +4,12 @@ import ExpensesList from "../components/ExpensesList";
 import { supabase } from "../utils/supabase";
 import { MonthNavigation } from "../components/MonthNavigation";
 import { useExpenses } from "../context/ExpensesContext";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const {expenses, setExpenses} = useExpenses();
   const [selectedMonth, setSelectedMonth] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -35,6 +37,7 @@ const Home = () => {
             viewBox="0 0 49 45"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={() => navigate("/")}
           >
             <rect
               x="1"
