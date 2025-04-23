@@ -52,14 +52,13 @@ const Detail = () => {
           </svg>
         </div>
 
-        <div className="text-xl p-[1rem] border md:h-[70%] md:w-full bg-white overflow-y-scroll border ">
-          <h1>
-            지출 상세 페이지
-          </h1>
-          <p>날짜: {expense.date} </p>
-          <p>항목: {expense.item} </p>
-          <p>내용: {expense.description} </p>
-          <p>가격: {expense.amount}원 </p>
+        <div className=" p-[1rem] border md:h-[70%] md:w-full bg-white overflow-y-scroll border ">
+          <div className="text-2xl ml-4 mt-4 grid gap-10">
+            <p>날짜: {expense.date} </p>
+            <p>항목: {expense.item} </p>
+            <p>내용: {expense.description} </p>
+            <p>가격: {expense.amount}원 </p>
+          </div>
         </div>
       </div>
     </div>
