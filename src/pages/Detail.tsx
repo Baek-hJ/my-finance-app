@@ -29,11 +29,8 @@ const Detail = () => {
         <div className="mb-[4px] mt-[-5px] flex items-center justify-between w-full">
           <h1 className="font-semibold">detail / {expense.item} - {expense.description} </h1>
           <svg
-            className="w-5 h-5"
-            width="20"
-            height="45"
+            className="w-5 h-5 cursor-pointer"
             viewBox="0 0 49 45"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => window.history.back()}
           >
