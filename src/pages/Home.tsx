@@ -27,7 +27,7 @@ const Home = () => {
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <div className=" p-[1rem] border-2 bg-[#CFDCDC] size-40 w-[80%] md:w-[70%] md:h-[85%]">
         <div className="mb-[4px] mt-[-5px] flex items-center justify-between w-full">
-          <h1 className="font-semibold">my-finace-app/</h1>
+          <h1 className="font-semibold">my-finace-app / {selectedMonth}</h1>
           <svg
             className="w-5 h-5"
             width="20"
