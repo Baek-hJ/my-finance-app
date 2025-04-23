@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useExpenses } from "../context/ExpensesContext";
+import CreateExpenses from "../components/CreateExpenses";
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -8,8 +9,14 @@ const Detail = () => {
   const expense = expenses.find((e) => e.id === id);
 
   if (!expense) {
-    return <div>지출 정보를 찾을 수 없습니다.</div>;
+    return (
+      <div className="flex flex-col items-center justify-center h-screen text-center px-4">
+        <img src="/err.jpg" alt="에러 아이콘" className="w-60 mb-4" />
+        <h1 className="text-3xl font-semibold">지출 정보를 찾을 수 없습니다.</h1>
+      </div>
+    );
   }
+  
   
   return (
 <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
@@ -61,6 +68,8 @@ const Detail = () => {
           </div>
         </div>
       </div>
+      
+      <CreateExpenses />
     </div>
   )
 };
