@@ -13,6 +13,11 @@ const Detail = () => {
       <div className="flex flex-col items-center justify-center h-screen text-center px-4">
         <img src="/err.jpg" alt="에러 아이콘" className="w-60 mb-4" />
         <h1 className="text-3xl font-semibold">지출 정보를 찾을 수 없습니다.</h1>
+        <button
+          className="mt-4 px-4 py-2 bg-[#A4C8C8] font-bold rounded-md"
+          onClick={() => window.history.back()}>
+            돌아가기
+        </button> 
       </div>
     );
   }
