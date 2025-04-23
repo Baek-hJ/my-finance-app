@@ -59,7 +59,7 @@ const Detail = () => {
           <p>날짜: {expense.date} </p>
           <p>항목: {expense.item} </p>
           <p>내용: {expense.description} </p>
-          <p>가격: {expense.amount} </p>
+          <p>가격: {expense.amount}원 </p>
         </div>
       </div>
     </div>
