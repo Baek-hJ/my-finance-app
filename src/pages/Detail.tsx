@@ -10,6 +10,7 @@ const Detail = () => {
   if (!expense) {
     return <div>지출 정보를 찾을 수 없습니다.</div>;
   }
+  
   return (
 <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <div className=" p-[1rem] border-2 bg-[#CFDCDC] size-40 w-[80%] md:w-[70%] md:h-[85%]">
@@ -51,20 +52,15 @@ const Detail = () => {
           </svg>
         </div>
 
-        <div className="bg-[#F1F1F1] border md:h-[2.3rem] md:w-full">
-        </div>
-
         <div className="p-[1rem] border md:h-[70%] md:w-full bg-white overflow-y-scroll border ">
-        <h1>
-      지출 상세 페이지
-    </h1>
-    <p>낳짜: {expense.date} </p>
-    <p>항목: {expense.item} </p>
-    <p>내용: {expense.description} </p>
-    <p>가격: {expense.amount} </p>
+          <h1>
+            지출 상세 페이지
+          </h1>
+          <p>날짜: {expense.date} </p>
+          <p>항목: {expense.item} </p>
+          <p>내용: {expense.description} </p>
+          <p>가격: {expense.amount} </p>
         </div>
-
-
       </div>
     </div>
   )
