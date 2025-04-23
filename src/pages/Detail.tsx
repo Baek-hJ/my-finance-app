@@ -35,6 +35,7 @@ const Detail = () => {
             viewBox="0 0 49 45"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={() => window.history.back()}
           >
             <rect
               x="1"
