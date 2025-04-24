@@ -8,10 +8,10 @@ const CreateExpenses = () => {
   const [addDescription, setAddDescription] = useState<string | null>("");
 
   const handleCansle = async () => {
-      setAddDate("");
-      setAddAmount("");
-      setAddItem("");
-      setAddDescription("");
+    setAddDate("");
+    setAddAmount("");
+    setAddItem("");
+    setAddDescription("");
   };
 
   const handleChange = async () => {

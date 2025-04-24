@@ -3,7 +3,10 @@ type Props = {
   setSelectedMonth: (month: number) => void;
 };
 
-export const MonthNavigation: React.FC<Props> = ({ selectedMonth, setSelectedMonth }) => {
+export const MonthNavigation: React.FC<Props> = ({
+  selectedMonth,
+  setSelectedMonth,
+}) => {
   return (
     <div className="flex flex-wrap justify-start gap-4 p-2">
       <p>Month</p>
@@ -13,7 +16,11 @@ export const MonthNavigation: React.FC<Props> = ({ selectedMonth, setSelectedMon
           <button
             key={i}
             onClick={() => setSelectedMonth(month)}
-            className={selectedMonth === month ? "font-bold underline decoration-2 decoration-black" : ""}
+            className={
+              selectedMonth === month
+                ? "font-bold underline decoration-2 decoration-black"
+                : ""
+            }
           >
             {month}
           </button>

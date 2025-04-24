@@ -12,22 +12,26 @@ const Detail = () => {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-center px-4">
         <img src="/err.jpg" alt="에러 아이콘" className="w-60 mb-4" />
-        <h1 className="text-3xl font-semibold">지출 정보를 찾을 수 없습니다.</h1>
+        <h1 className="text-3xl font-semibold">
+          지출 정보를 찾을 수 없습니다.
+        </h1>
         <button
           className="mt-4 px-4 py-2 bg-[#A4C8C8] font-bold rounded-md"
-          onClick={() => window.history.back()}>
-            돌아가기
-        </button> 
+          onClick={() => window.history.back()}
+        >
+          돌아가기
+        </button>
       </div>
     );
   }
-  
-  
+
   return (
-<div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
+    <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <div className=" p-[1rem] border-2 bg-[#CFDCDC] size-40 w-[80%] md:w-[70%] md:h-[85%]">
         <div className="mb-[4px] mt-[-5px] flex items-center justify-between w-full">
-          <h1 className="font-semibold">detail / {expense.item} - {expense.description} </h1>
+          <h1 className="font-semibold">
+            detail / {expense.item} - {expense.description}{" "}
+          </h1>
           <svg
             className="w-5 h-5 cursor-pointer"
             viewBox="0 0 49 45"
@@ -73,7 +77,7 @@ const Detail = () => {
         <CreateExpenses />
       </div>
     </div>
-  )
+  );
 };
 
 export default Detail;
