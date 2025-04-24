@@ -7,7 +7,7 @@ import { useExpenses } from "../context/ExpensesContext";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const {expenses, setExpenses} = useExpenses();
+  const { expenses, setExpenses } = useExpenses();
   const [selectedMonth, setSelectedMonth] = useState(1);
   const navigate = useNavigate();
 
@@ -35,7 +35,6 @@ const Home = () => {
             viewBox="0 0 49 45"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => navigate("/")}
-            
           >
             <rect
               x="1"
