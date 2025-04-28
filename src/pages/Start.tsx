@@ -8,7 +8,6 @@ const Start = () => {
   audio.pause()
   audio.loop = true;
 
-  
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <img
