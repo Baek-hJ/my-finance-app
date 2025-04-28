@@ -11,7 +11,7 @@ function App() {
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
   return (
-    <ExpensesContext.Provider value={{expenses, setExpenses}}>
+    <ExpensesContext.Provider value={{ expenses, setExpenses }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Start />} />
