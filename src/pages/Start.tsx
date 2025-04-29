@@ -10,7 +10,6 @@ const Start = () => {
   audio.src = "public/Strawberry.mp3";
   audio.volume = 0.3;
 
-  
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <img
