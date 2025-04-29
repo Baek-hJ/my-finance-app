@@ -12,17 +12,17 @@ function App() {
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
   return (
-    <ExpensesContext.Provider value={{ expenses, setExpenses }}>
-      <AudioProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Start />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/expenses/:id" element={<Detail />} />
-        </Routes>
-      </BrowserRouter>
-      </AudioProvider>
-    </ExpensesContext.Provider>
+    <AudioProvider>
+      <ExpensesContext.Provider value={{ expenses, setExpenses }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Start />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/expenses/:id" element={<Detail />} />
+          </Routes>
+        </BrowserRouter>
+      </ExpensesContext.Provider>
+    </AudioProvider>
   );
 }
 
