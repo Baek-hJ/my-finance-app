@@ -9,6 +9,7 @@ const Layout = () => {
         src="https://img.icons8.com/metro/52/speaker.png"
         alt="speaker"
         className="color-[#CFDCDC]"
+        onClick={() => {}}
       />{" "}
     </div>
   );
