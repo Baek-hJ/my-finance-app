@@ -5,6 +5,7 @@ import { supabase } from "../utils/supabase";
 import { MonthNavigation } from "../components/MonthNavigation";
 import { useExpenses } from "../context/ExpensesContext";
 import { useNavigate } from "react-router-dom";
+import Layout from "../layout/Layout";
 
 const Home = () => {
   const { expenses, setExpenses } = useExpenses();
@@ -78,7 +79,9 @@ const Home = () => {
 
         <CreateExpenses onAddExpense={(newExpense) => setExpenses(prev => [newExpense, ...prev])}/>
       </div>
+      <Layout></Layout>
     </div>
+
   );
 };
 
