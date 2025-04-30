@@ -4,6 +4,7 @@ import { useAudio } from "../context/AudioContext";
 const Start = () => {
   const navigate = useNavigate();
   const audio = useAudio();
+  const startSound = new Audio("/start-sound.mp3");
 
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
@@ -12,6 +13,7 @@ const Start = () => {
         alt="Folder"
         className="h-[13rem] cursor-pointer m-[1rem]"
         onClick={() => {
+          startSound.play();
           audio.play();
           navigate("/home");
         }}
