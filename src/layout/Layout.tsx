@@ -3,7 +3,7 @@ import { useAudio } from "../context/AudioContext";
 
 const Layout = () => {
   const audio = useAudio();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const toggleAudio = () => {
     if (isPlaying) {
@@ -33,7 +33,7 @@ const Layout = () => {
       <img
         width="26"
         height="26"
-        src={isPlaying ? "/pause.png" : "/play.png"}
+        src={isPlaying ? "/play.png" : "/pause.png"}
         alt="Music Control"
         className="color-[#CFDCDC]"
         onClick={toggleAudio}
