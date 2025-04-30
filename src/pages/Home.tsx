@@ -78,7 +78,7 @@ const Home = () => {
 
         <CreateExpenses />
       </div>
-      <Layout></Layout>
+      <Layout />
     </div>
 
   );
