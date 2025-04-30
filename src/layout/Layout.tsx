@@ -29,7 +29,7 @@ const Layout = () => {
   }, [audio]);
 
   return (
-    <div className="grid justify-end p-4">
+    <div className="grid justify-end w-full pr-15 pt-5">
       <img
         width="36"
         height="36"
