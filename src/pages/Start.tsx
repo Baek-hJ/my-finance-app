@@ -6,6 +6,11 @@ const Start = () => {
   const audio = useAudio();
   const startSound = new Audio("/start-sound.mp3");
 
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
       <img
