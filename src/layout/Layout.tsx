@@ -33,7 +33,7 @@ const Layout = () => {
       <img
         width="26"
         height="26"
-        src={isPlaying? "https://img.icons8.com/metro/52/speaker.png":}
+        src={isPlaying ? "https://img.icons8.com/metro/52/speaker.png":}
         alt="Music Control"
         className="color-[#CFDCDC]"
         onClick={toggleAudio}
