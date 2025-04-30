@@ -29,15 +29,15 @@ const Layout = () => {
   }, [audio]);
 
   return (
-    <div>
+    <div className="grid justify-end p-4">
       <img
         width="26"
         height="26"
         src={isPlaying ? "/play.png" : "/pause.png"}
         alt="Music Control"
-        className="color-[#CFDCDC]"
+        className="color-[#CFDCDC] cursor-pointer"
         onClick={toggleAudio}
-      />{" "}
+      />
     </div>
   );
 };
