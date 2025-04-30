@@ -5,6 +5,7 @@ const Start = () => {
   const navigate = useNavigate();
   const audio = useAudio();
   const startSound = new Audio("/start-sound.mp3");
+  startSound.volume = 0.4;
 
   if (audio) {
     audio.pause();
