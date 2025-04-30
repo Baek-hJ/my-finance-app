@@ -1,14 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useAudio } from "../context/AudioContext";
 
 const Start = () => {
   const navigate = useNavigate();
-  const audio = new Audio("audio.mp3");
-
-  audio.play();
-  audio.pause();
-  audio.loop = true;
-  audio.src = "public/Strawberry.mp3";
-  audio.volume = 0.3;
+  const audio = useAudio();
 
   return (
     <div className="min-w-screen min-h-screen md:w-screen md:h-screen bg-[#DBE9E9] flex flex-col items-center justify-center">
@@ -16,7 +11,10 @@ const Start = () => {
         src="/folder.png"
         alt="Folder"
         className="h-[13rem] cursor-pointer m-[1rem]"
-        onClick={() => {navigate("/home"); audio.play()}}
+        onClick={() => {
+          audio.play();
+          navigate("/home");
+        }}
       />
       <h1 className="text-5xl font-sans font-bold">my-finance-app</h1>
     </div>
