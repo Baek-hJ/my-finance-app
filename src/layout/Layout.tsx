@@ -31,8 +31,8 @@ const Layout = () => {
   return (
     <div className="grid justify-end p-4">
       <img
-        width="26"
-        height="26"
+        width="36"
+        height="36"
         src={isPlaying ? "/play.png" : "/pause.png"}
         alt="Music Control"
         className="color-[#CFDCDC] cursor-pointer"
