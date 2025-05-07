@@ -1,11 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
+import { useParams } from "react-router-dom";
 
-const UpdateExpenses = ({id}: {id:string}) => {
+const UpdateExpenses = () => {
+  const { id } = useParams<{ id: string }>();
   const [updateDate, setUpdateDate] = useState("");
   const [updateAmount, setUpdateAmount] = useState("");
   const [updateItem, setUpdateItem] = useState<string | null>("");
   const [updateDescription, setUpdateDescription] = useState<string | null>("");
+
+  useEffect(() => {
+    const fetchExpense = async () => {
+      if (!id) return;
+
+      const { data, error } = await supabase
+        .from("expenses")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+      if (error) {
+        console.error("데이터 불러오기 실패:", error);
+      } else {
+        setUpdateDate(data.date);
+        setUpdateAmount(String(data.amount));
+        setUpdateItem(data.item);
+        setUpdateDescription(data.description);
+      }
+    };
+    fetchExpense();
+  }, [id]);
 
   const handleCancle = async () => {
     setUpdateDate("");
@@ -14,7 +38,7 @@ const UpdateExpenses = ({id}: {id:string}) => {
     setUpdateDescription("");
   };
 
-  const handleChange = async () => {
+  const handleUpdate = async () => {
     const numberAmount = Number(updateAmount) || 0;
     const { error } = await supabase
       .from("expenses")
@@ -39,7 +63,7 @@ const UpdateExpenses = ({id}: {id:string}) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleChange();
+        handleUpdate();
       }}
       className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-3 items-center p-5"
     >
