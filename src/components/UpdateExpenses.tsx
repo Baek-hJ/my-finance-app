@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
+import { useNavigate } from "react-router-dom";
+
 
 const UpdateExpenses = ({id}:{id:string}) => {
   const [updateDate, setUpdateDate] = useState("");
   const [updateAmount, setUpdateAmount] = useState("");
   const [updateItem, setUpdateItem] = useState<string | null>("");
   const [updateDescription, setUpdateDescription] = useState<string | null>("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchExpense = async () => {
@@ -30,7 +34,17 @@ const UpdateExpenses = ({id}:{id:string}) => {
   }, [id]);
 
   const handleDelete = async () => {
-
+    const { error } = await supabase
+    .from('expenses')
+    .delete()
+    .eq("id", id)
+    
+    if (error) {
+      console.error("데이터 불러오기 실패:", error)
+    } else {
+        alert("삭제되었습니다.");
+        navigate("/home")
+    }
   };
 
   const handleUpdate = async () => {
@@ -100,7 +114,7 @@ const UpdateExpenses = ({id}:{id:string}) => {
       />
       <button
         type="button"
-        onClick={handleDelete}
+        onClick={(e) => handleDelete()}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
         삭제
