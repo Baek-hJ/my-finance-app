@@ -75,7 +75,7 @@ const Detail = () => {
             <p>가격: {expense.amount}원 </p>
           </div>
         </div>
-        <UpdateExpenses />
+        <UpdateExpenses id={id as string} />
       </div>
       <Layout />
     </div>
