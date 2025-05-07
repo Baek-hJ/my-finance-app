@@ -60,12 +60,10 @@ const UpdateExpenses = ({id}:{id:string}) => {
       .eq("id", id);
 
     if (error) {
-      console.error("Error inserting data:", error);
+      console.error("데이터 불러오기 실패:", error);
     } else {
-      setUpdateDate("");
-      setUpdateAmount("");
-      setUpdateItem("");
-      setUpdateDescription("");
+        alert("수정되었습니다.");
+        
     }
   };
   return (
@@ -114,7 +112,7 @@ const UpdateExpenses = ({id}:{id:string}) => {
       />
       <button
         type="button"
-        onClick={(e) => handleDelete()}
+        onClick={handleDelete}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
         삭제
