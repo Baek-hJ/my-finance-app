@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useExpenses } from "../context/ExpensesContext";
-import CreateExpenses from "../components/CreateExpenses";
 import Layout from "../layout/Layout";
+import UpdateExpenses from "../components/UpdateExpenses";
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -75,7 +75,7 @@ const Detail = () => {
             <p>가격: {expense.amount}원 </p>
           </div>
         </div>
-        <CreateExpenses />
+        <UpdateExpenses />
       </div>
       <Layout />
     </div>
