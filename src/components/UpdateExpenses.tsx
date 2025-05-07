@@ -7,7 +7,7 @@ const UpdateExpenses = ({id}: {id:string}) => {
   const [updateItem, setUpdateItem] = useState<string | null>("");
   const [updateDescription, setUpdateDescription] = useState<string | null>("");
 
-  const handleCansle = async () => {
+  const handleCancle = async () => {
     setUpdateDate("");
     setUpdateAmount("");
     setUpdateItem("");
@@ -81,7 +81,7 @@ const UpdateExpenses = ({id}: {id:string}) => {
       />
       <button
         type="button"
-        onClick={handleCansle}
+        onClick={handleCancle}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
         취소
