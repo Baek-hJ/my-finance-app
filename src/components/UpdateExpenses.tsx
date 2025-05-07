@@ -29,11 +29,8 @@ const UpdateExpenses = ({id}:{id:string}) => {
     fetchExpense();
   }, [id]);
 
-  const handleCancle = async () => {
-    setUpdateDate("");
-    setUpdateAmount("");
-    setUpdateItem("");
-    setUpdateDescription("");
+  const handleDelete = async () => {
+
   };
 
   const handleUpdate = async () => {
@@ -82,7 +79,7 @@ const UpdateExpenses = ({id}:{id:string}) => {
         type="number"
       />
       <button type="submit" className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]">
-        저장
+        수정
       </button>
 
       <h1 className="text-right">항목</h1>
@@ -103,10 +100,10 @@ const UpdateExpenses = ({id}:{id:string}) => {
       />
       <button
         type="button"
-        onClick={handleCancle}
+        onClick={handleDelete}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
-        취소
+        삭제
       </button>
     </form>
   );
