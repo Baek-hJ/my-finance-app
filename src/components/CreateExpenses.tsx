@@ -7,7 +7,7 @@ const CreateExpenses = () => {
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
 
-  const handleCansle = async () => {
+  const handleCancle = async () => {
     setAddDate("");
     setAddAmount("");
     setAddItem("");
@@ -80,7 +80,7 @@ const CreateExpenses = () => {
       />
       <button
         type="button"
-        onClick={handleCansle}
+        onClick={handleCancle}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
         취소
