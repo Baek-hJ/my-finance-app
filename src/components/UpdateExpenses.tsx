@@ -2,36 +2,37 @@ import { useState } from "react";
 import { supabase } from "../utils/supabase";
 
 const UpdateExpenses = () => {
-  const [addDate, setAddDate] = useState("");
-  const [addAmount, setAddAmount] = useState("");
-  const [addItem, setAddItem] = useState<string | null>("");
-  const [addDescription, setAddDescription] = useState<string | null>("");
+  const [updateDate, setUpdateDate] = useState("");
+  const [updateAmount, setUpdateAmount] = useState("");
+  const [updateItem, setUpdateItem] = useState<string | null>("");
+  const [updateDescription, setUpdateDescription] = useState<string | null>("");
 
   const handleCansle = async () => {
-    setAddDate("");
-    setAddAmount("");
-    setAddItem("");
-    setAddDescription("");
+    setUpdateDate("");
+    setUpdateAmount("");
+    setUpdateItem("");
+    setUpdateDescription("");
   };
 
   const handleChange = async () => {
-    const numberAmount = Number(addAmount) || 0;
-    const { error } = await supabase.from("expenses").insert([
-      {
-        id: crypto.randomUUID(),
-        date: addDate,
+    const numberAmount = Number(updateAmount) || 0;
+    const { error } = await supabase
+      .from("expenses")
+      .update({
+        date: updateDate,
         amount: numberAmount,
-        item: addItem,
-        description: addDescription,
-      },
-    ]);
+        item: updateItem,
+        description: updateDescription,
+      })
+      .eq("id", id);
+
     if (error) {
       console.error("Error inserting data:", error);
     } else {
-      setAddDate("");
-      setAddAmount("");
-      setAddItem("");
-      setAddDescription("");
+      setUpdateDate("");
+      setUpdateAmount("");
+      setUpdateItem("");
+      setUpdateDescription("");
     }
   };
   return (
@@ -44,16 +45,16 @@ const UpdateExpenses = () => {
     >
       <h1 className="text-right ">날짜</h1>
       <input
-        value={addDate}
-        onChange={(e) => setAddDate(e.target.value)}
+        value={updateDate}
+        onChange={(e) => setUpdateDate(e.target.value)}
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
         placeholder="YYYY-MM-DD"
         type="text"
       />
       <h1 className="text-right">가격</h1>
       <input
-        value={addAmount ?? ""}
-        onChange={(e) => setAddAmount(e.target.value)}
+        value={updateAmount ?? ""}
+        onChange={(e) => setUpdateAmount(e.target.value)}
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
         placeholder="0"
         type="number"
@@ -64,16 +65,16 @@ const UpdateExpenses = () => {
 
       <h1 className="text-right">항목</h1>
       <input
-        value={addItem ?? ""}
-        onChange={(e) => setAddItem(e.target.value)}
+        value={updateItem ?? ""}
+        onChange={(e) => setUpdateItem(e.target.value)}
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
         placeholder="지출 항목"
         type="text"
       />
       <h1 className="text-right">내용</h1>
       <input
-        value={addDescription ?? ""}
-        onChange={(e) => setAddDescription(e.target.value)}
+        value={updateDescription ?? ""}
+        onChange={(e) => setUpdateDescription(e.target.value)}
         className="border bg-white w-[15rem] h-[1.7rem] placeholder:p-2 placeholder:text-[15px]"
         placeholder="지출 내용"
         type="text"
