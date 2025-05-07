@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
-import { useParams } from "react-router-dom";
 
-const UpdateExpenses = () => {
-  const { id } = useParams<{ id: string }>();
+const UpdateExpenses = ({id}:{id:string}) => {
   const [updateDate, setUpdateDate] = useState("");
   const [updateAmount, setUpdateAmount] = useState("");
   const [updateItem, setUpdateItem] = useState<string | null>("");
