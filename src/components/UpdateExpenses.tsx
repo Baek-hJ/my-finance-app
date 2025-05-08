@@ -113,7 +113,7 @@ const UpdateExpenses = ({id}:{id:string}) => {
       <button
         type="button"
         onClick={handleDelete}
-        className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
+        className="border bg-[#F1F1F1] w~-[5rem] h-[1.7rem]"
       >
         삭제
       </button>
