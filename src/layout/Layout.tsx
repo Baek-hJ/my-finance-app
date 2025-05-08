@@ -1,9 +1,9 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAudio } from "../context/AudioContext";
 
 const Layout = () => {
   const audio = useAudio();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const toggleAudio = () => {
     if (isPlaying) {
@@ -29,15 +29,15 @@ const Layout = () => {
   }, [audio]);
 
   return (
-    <div>
+    <div className="grid justify-end w-full pr-15 pt-5">
       <img
-        width="26"
-        height="26"
-        src={isPlaying? "https://img.icons8.com/metro/52/speaker.png":}
+        width="36"
+        height="36"
+        src={isPlaying ? "/play.png" : "/pause.png"}
         alt="Music Control"
-        className="color-[#CFDCDC]"
+        className="color-[#CFDCDC] cursor-pointer"
         onClick={toggleAudio}
-      />{" "}
+      />
     </div>
   );
 };

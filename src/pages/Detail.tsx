@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useExpenses } from "../context/ExpensesContext";
 import CreateExpenses from "../components/CreateExpenses";
+import Layout from "../layout/Layout";
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -76,6 +77,7 @@ const Detail = () => {
         </div>
         <CreateExpenses />
       </div>
+      <Layout />
     </div>
   );
 };

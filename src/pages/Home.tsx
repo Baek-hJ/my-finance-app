@@ -79,7 +79,7 @@ const Home = () => {
 
         <CreateExpenses onAddExpense={(newExpense) => setExpenses(prev => [newExpense, ...prev])}/>
       </div>
-      <Layout></Layout>
+      <Layout />
     </div>
 
   );
