@@ -16,6 +16,8 @@ const CreateExpenses = () => {
 
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
+
+    // 데이터를 수파베이스에 추가
     const { error } = await supabase.from("expenses").insert([
       {
         id: crypto.randomUUID(),
@@ -28,6 +30,7 @@ const CreateExpenses = () => {
     if (error) {
       console.error("Error inserting data:", error);
     } else {
+      // 비동기 작업 후 상태 초기화
       setAddDate("");
       setAddAmount("");
       setAddItem("");
