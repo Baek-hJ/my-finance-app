@@ -1,9 +1,10 @@
 import { createContext, useContext } from "react";
 import { Expense } from "../../database.types";
+import { Dispatch, SetStateAction } from "react";
 
 type ExpensesContextType = {
   expenses: Expense[];
-  setExpenses: (e: Expense[]) => void;
+  setExpenses: Dispatch<SetStateAction<Expense[]>>;
 };
 
 export const ExpensesContext = createContext<ExpensesContextType>({

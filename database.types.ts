@@ -1,4 +1,5 @@
 // yarn run v1.22.22
+// database.types.ts
 
 export type Json =
   | string
