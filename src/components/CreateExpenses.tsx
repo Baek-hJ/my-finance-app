@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabase";
-import { Expense } from "../../database.types";
 
-const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void}) => {
+const CreateExpenses = () => {
   const [addDate, setAddDate] = useState("");
   const [addAmount, setAddAmount] = useState("");
   const [addItem, setAddItem] = useState<string | null>("");
@@ -17,10 +16,6 @@ const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void
 
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
-    
-    if (! addDate || numberAmount <= 0 || !addItem ) {
-      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
-    }
 
     // 데이터를 수파베이스에 추가
     const { error } = await supabase.from("expenses").insert([
@@ -32,7 +27,9 @@ const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void
         description: addDescription,
       },
     ]);
-    
+    if (! addDate || numberAmount <= 0 || !addItem ) {
+      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
+    }
     if (error) {
       console.error("Error inserting data:", error);
     } else {
@@ -41,8 +38,6 @@ const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void
       setAddAmount("");
       setAddItem("");
       setAddDescription("");
-
-      onAddExpense(newExpense);
     }
   };
   return (
