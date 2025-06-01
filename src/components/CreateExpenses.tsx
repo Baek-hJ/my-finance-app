@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabase";
+import { useExpenses } from "../context/ExpensesContext";
+import { Expense } from "../../database.types";
 
 const CreateExpenses = () => {
   const [addDate, setAddDate] = useState("");
   const [addAmount, setAddAmount] = useState("");
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
+  const {setExpenses } = useExpenses();
 
   const handleCancel = async () => {
     setAddDate("");
@@ -22,7 +25,7 @@ const CreateExpenses = () => {
     }
 
     // 데이터를 수파베이스에 추가
-    const { error } = await supabase.from("expenses").insert([
+    const { data, error } = await supabase.from("expenses").insert([
       {
         id: crypto.randomUUID(),
         date: addDate,
@@ -33,15 +36,18 @@ const CreateExpenses = () => {
     ])
     .select();
 
-    if (error) {
-      console.error("Error inserting data:", error);
-    } else {
-      // 비동기 작업 후 상태 초기화
-      setAddDate("");
-      setAddAmount("");
-      setAddItem("");
-      setAddDescription("");
-    }
+  if (error) {
+    console.error("Error inserting data:", error);
+  } else if (data) {
+    const newExpense = data[0] as Expense;
+    setExpenses((prev: Expense[]) => [...prev, newExpense])
+
+    // 입력 필드 초기화
+    setAddDate("");
+    setAddAmount("");
+    setAddItem("");
+    setAddDescription("");
+  }
   };
   return (
     <form
