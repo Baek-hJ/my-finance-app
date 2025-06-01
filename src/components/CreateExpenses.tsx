@@ -22,6 +22,7 @@ const CreateExpenses = () => {
 
     if (! addDate || numberAmount <= 0 || !addItem ) {
       alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
+      return;
     }
 
     // 데이터를 수파베이스에 추가
