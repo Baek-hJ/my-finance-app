@@ -17,6 +17,10 @@ const CreateExpenses = () => {
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
 
+    if (! addDate || numberAmount <= 0 || !addItem ) {
+      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
+    }
+
     // 데이터를 수파베이스에 추가
     const { error } = await supabase.from("expenses").insert([
       {
@@ -26,10 +30,9 @@ const CreateExpenses = () => {
         item: addItem,
         description: addDescription,
       },
-    ]);
-    if (! addDate || numberAmount <= 0 || !addItem ) {
-      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
-    }
+    ])
+    .select();
+
     if (error) {
       console.error("Error inserting data:", error);
     } else {

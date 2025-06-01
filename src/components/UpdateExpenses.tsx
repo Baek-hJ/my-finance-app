@@ -57,7 +57,8 @@ const UpdateExpenses = ({id}:{id:string}) => {
         item: updateItem,
         description: updateDescription,
       })
-      .eq("id", id);
+      .eq("id", id)
+      .select();
 
     if (error) {
       console.error("데이터 불러오기 실패:", error);
