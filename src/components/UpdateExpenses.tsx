@@ -50,6 +50,7 @@ const UpdateExpenses = ({ id }: { id: string }) => {
 
     if (!updateDate || numberAmount <= 0 || !updateItem) {
       alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
+      return;
     }
 
     const { data, error } = await supabase
