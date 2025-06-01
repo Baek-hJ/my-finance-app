@@ -8,7 +8,7 @@ const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
 
-  const handleCancle = async () => {
+  const handleCancel = async () => {
     setAddDate("");
     setAddAmount("");
     setAddItem("");
@@ -17,18 +17,26 @@ const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void
 
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
-    const newExpense: Expense = {
-      id: crypto.randomUUID(),
-      date: addDate,
-      amount: numberAmount,
-      item: addItem,
-      description: addDescription,
+    
+    if (! addDate || numberAmount <= 0 || !addItem ) {
+      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
     }
-    const { error } = await supabase.from("expenses").insert([newExpense]);
 
-    if (error)
-        {console.error("Error inserting data:", error);
+    // 데이터를 수파베이스에 추가
+    const { error } = await supabase.from("expenses").insert([
+      {
+        id: crypto.randomUUID(),
+        date: addDate,
+        amount: numberAmount,
+        item: addItem,
+        description: addDescription,
+      },
+    ]);
+    
+    if (error) {
+      console.error("Error inserting data:", error);
     } else {
+      // 비동기 작업 후 상태 초기화
       setAddDate("");
       setAddAmount("");
       setAddItem("");
@@ -83,7 +91,7 @@ const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void
       />
       <button
         type="button"
-        onClick={handleCancle}
+        onClick={handleCancel}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
         취소

@@ -10,7 +10,11 @@ const ExpensesList = ({
   selectedMonth: number;
 }) => {
   const navigate = useNavigate();
+  
+  // 월별 필터링 함수
   const filteredExpenses = getMonthFilter(expenses, selectedMonth);
+  
+  // 월별 필터링된 지출 내역을 클릭하면 해당 지출 내역의 상세 페이지로 이동
   return (
     <div>
       <ul className="text-xl list-disc list-outside ml-10 mt-5 grid gap-5">
