@@ -101,7 +101,7 @@ npm run dev
 
 ## 🖼️ 앱 화면 구성 (Figma)
 
-(public\피그마.png)
+![피그마](https://github.com/user-attachments/assets/f6c20a81-e230-4d79-b800-fe2519f81ed0)
 
 - **Start Page**: 폴더 이미지를 클릭하여 홈 화면으로 진입
 - **Home Page**: 지출 목록, 월별 네비게이션, 입력 폼 표시
@@ -110,8 +110,6 @@ npm run dev
 ---
 
 ## 🗂 Supabase 테이블 스키마
-
-(public\데이터 테이블.png)
 
 - `id`: UUID (Primary Key)
 - `date`: 날짜 (date 형식)
