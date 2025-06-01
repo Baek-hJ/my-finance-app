@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import { useNavigate } from "react-router-dom";
 
-
-const UpdateExpenses = ({id}:{id:string}) => {
+const UpdateExpenses = ({ id }: { id: string }) => {
   const [updateDate, setUpdateDate] = useState("");
   const [updateAmount, setUpdateAmount] = useState("");
   const [updateItem, setUpdateItem] = useState<string | null>("");
@@ -34,21 +33,23 @@ const UpdateExpenses = ({id}:{id:string}) => {
   }, [id]);
 
   const handleDelete = async () => {
-    const { error } = await supabase
-    .from('expenses')
-    .delete()
-    .eq("id", id)
-    
+    const { error } = await supabase.from("expenses").delete().eq("id", id);
+
     if (error) {
-      console.error("데이터 불러오기 실패:", error)
+      console.error("데이터 불러오기 실패:", error);
     } else {
-        alert("삭제되었습니다.");
-        navigate("/home")
+      alert("삭제되었습니다.");
+      navigate("/home");
     }
   };
 
   const handleUpdate = async () => {
     const numberAmount = Number(updateAmount) || 0;
+
+    if (!updateDate || numberAmount <= 0 || !updateItem) {
+      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
+    }
+    
     const { error } = await supabase
       .from("expenses")
       .update({
@@ -63,8 +64,7 @@ const UpdateExpenses = ({id}:{id:string}) => {
     if (error) {
       console.error("데이터 불러오기 실패:", error);
     } else {
-        alert("수정되었습니다.");
-        
+      alert("수정되었습니다.");
     }
   };
   return (
