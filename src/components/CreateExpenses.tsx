@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabase";
+import { Expense } from "../../database.types";
 
-const CreateExpenses = () => {
+const CreateExpenses = ({onAddExpense}:{onAddExpense: (expense: Expense) => void}) => {
   const [addDate, setAddDate] = useState("");
   const [addAmount, setAddAmount] = useState("");
   const [addItem, setAddItem] = useState<string | null>("");
@@ -40,6 +41,8 @@ const CreateExpenses = () => {
       setAddAmount("");
       setAddItem("");
       setAddDescription("");
+
+      onAddExpense(newExpense);
     }
   };
   return (
