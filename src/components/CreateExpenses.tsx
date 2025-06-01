@@ -7,7 +7,7 @@ const CreateExpenses = () => {
   const [addItem, setAddItem] = useState<string | null>("");
   const [addDescription, setAddDescription] = useState<string | null>("");
 
-  const handleCancle = async () => {
+  const handleCancel = async () => {
     setAddDate("");
     setAddAmount("");
     setAddItem("");
@@ -16,6 +16,10 @@ const CreateExpenses = () => {
 
   const handleChange = async () => {
     const numberAmount = Number(addAmount) || 0;
+    
+    if (! addDate || numberAmount <= 0 || !addItem ) {
+      alert("날짜, 가격, 항목은 필수 입력 사항입니다.");
+    }
 
     // 데이터를 수파베이스에 추가
     const { error } = await supabase.from("expenses").insert([
@@ -27,6 +31,7 @@ const CreateExpenses = () => {
         description: addDescription,
       },
     ]);
+    
     if (error) {
       console.error("Error inserting data:", error);
     } else {
@@ -83,7 +88,7 @@ const CreateExpenses = () => {
       />
       <button
         type="button"
-        onClick={handleCancle}
+        onClick={handleCancel}
         className="border bg-[#F1F1F1] w-[5rem] h-[1.7rem]"
       >
         취소
