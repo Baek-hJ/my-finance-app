@@ -99,4 +99,26 @@ npm run dev
 
 ---
 
+## 🖼️ 앱 화면 구성 (Figma)
+
+![앱 화면 기획 (Figma)](./de179d93-db54-4215-b0e1-016d6724225f.png)
+
+- **Start Page**: 폴더 이미지를 클릭하여 홈 화면으로 진입
+- **Home Page**: 지출 목록, 월별 네비게이션, 입력 폼 표시
+- **Detail Page**: 지출 상세 정보 확인 및 수정 가능
+
+---
+
+## 🗂 Supabase 테이블 스키마
+
+![Supabase 스키마](./04d0345e-315d-4a9b-9caa-862b167d4f02.png)
+
+- `id`: UUID (Primary Key)
+- `date`: 날짜 (date 형식)
+- `item`: 항목명 (text)
+- `amount`: 금액 (정수형)
+- `description`: 설명 (text)
+
+---
+
 > 만든 이:Baek-hJ
